@@ -1,0 +1,179 @@
+@import "partials/setup";
+@import "partials/global"; 
+
+// PARENT DIV
+.parent {
+    position: relative;
+    left: 0;
+	transition: left 0.5s ease;
+}
+
+// MAIN
+.main {
+    background: $backgroundColour;
+    height: 100vh;
+    border: 70px solid $borderColour;
+    padding: 50px 50px 50px 100px;
+    img {
+        // display: block;
+    }
+    h1 {
+        font-size: 40px;
+        position: relative;
+        margin: 0 0 30px 0;
+        &::before {
+            content: ' ';
+            height: 4px;
+            bottom: -14px;
+            left: 3px;
+            width: 136px;
+            background: black;
+            position: absolute;
+        }
+    }
+    .image-button {
+        display: flex;
+        align-items: center;
+    }
+
+    .button-wrapper {
+        padding-left: 50px;
+    }
+    button {
+        margin: 0 20px;
+        border: 2px solid $buttonColour;
+        border-radius: 40px;
+        padding: 10px;
+        text-transform: uppercase;
+        font-weight: bold;
+        &:hover {
+            background: $buttonColour;
+            color: white;
+            transition: all 0.5s ease;
+        }
+    }
+}
+
+// ASIDE
+.saved {
+    background: $buttonColour;
+    position: absolute;
+    width: 400px;
+    right: -400px;
+    top:0;
+	bottom:0;
+	margin: 0;
+    transition: all 0.5s ease;
+    overflow-y: scroll;
+    height: 100vh;
+    padding: 20px;
+    h3 {
+        margin-top: 60px;
+        text-align: center;
+    }
+    .name {
+        font-weight: 700;
+    }
+}
+
+label[for="toggle"] {
+    position: absolute;
+	top: 20px;
+    right: 70px;
+    display: flex;
+    align-items: center;
+    color: black;
+    cursor:pointer;
+    img {
+        margin-right: 20px;
+    }
+}
+
+#toggle {
+    // display: none;
+    visibility: hidden;
+    position: absolute;
+}
+
+#toggle:checked + .saved {
+	right: 0;
+}
+
+.selected {
+    background: $selectColour;
+    border: 70px solid $borderColour;
+    height: 100vh;
+    padding: 50px 50px 50px 100px;
+    display: flex;
+    justify-content: space-around;
+    // overflow-y: scroll;
+    h3 {
+        margin: 0 0 20px 0;
+    }
+    .firstDiv, .secondDiv {
+        width: 50%;
+    }
+    p {
+        margin-bottom: 0;
+    }
+}
+
+// BUTTONS
+button {
+        margin: 0 20px;
+        border: 2px solid $buttonColour;
+        border-radius: 40px;
+        padding: 10px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 30px;
+        &:hover {
+            background: $buttonColour;
+            color: white;
+            transition: all 0.5s ease;
+        }
+    }
+
+// RESPONSIVENESS
+@media (max-width: 1145px) {
+    .button-wrapper {
+        text-align: center;
+        button {
+            margin-top: 10px;
+        }
+    } 
+}
+
+@media(max-width: 900px) {
+    .main {
+        padding-left: 50px;
+    }
+    .image-button {
+        flex-direction: column;
+        .button-wrapper {
+            padding-left: 0;
+        }
+        button {
+            margin-top: 50px;
+        }
+    }
+    .selected {
+        flex-direction: column;
+        height: auto;
+        button {
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 4px;
+        }
+        a {
+            display:block;
+        }
+    }
+    
+    .selected .firstDiv, .selected .secondDiv {
+        width: 100%;
+    }
+}
+
+
